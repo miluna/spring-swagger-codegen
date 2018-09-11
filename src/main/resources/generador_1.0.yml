@@ -1,0 +1,244 @@
+---
+swagger: "2.0"
+info:
+  description: Parking api
+  version: 0.0.1
+  title: Parking api
+paths:
+  parkings:
+    get:
+      summary: Get all parkings
+      description: Get all parkings from database
+      parameters: []
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Parkings'
+    post:
+      summary: Create a new parking
+      description: Add a new parking to database
+      parameters:
+      - in: body
+        name: Parking
+        description: Parking object
+        required: true
+        schema:
+          $ref: '#/definitions/Parking'
+      responses:
+        200:
+          description: OK
+  parkings/{parkingId}:
+    get:
+      summary: Get parking information
+      description: Get parking information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Parking'
+    put:
+      summary: Update parking information
+      description: Update parking information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Parking'
+    delete:
+      summary: Delete parking
+      description: Delete parking information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+  parkings/{parkingId}/vehicles:
+    get:
+      summary: Get all cars from a parking
+      description: Get all cars from a parking
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Vehicles'
+    post:
+      summary: Add a car to a parking
+      description: Add car to parking
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+  parkings/{parkingId}/vehicles/{vehicleId}:
+    get:
+      summary: Get vehicle information
+      description: Get vehicle information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      - name: vehicleId
+        in: path
+        description: vehicle id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Vehicle'
+    put:
+      summary: Update vehicle information
+      description: Update vehicle information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      - name: vehicleId
+        in: path
+        description: vehicle id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Vehicle'
+    delete:
+      summary: Delete vehicle information
+      description: Delete vehicle information
+      parameters:
+      - name: parkingId
+        in: path
+        description: Parking id
+        required: true
+        type: string
+      - name: vehicleId
+        in: path
+        description: vehicle id
+        required: true
+        type: string
+      responses:
+        200:
+          description: OK
+definitions:
+  Parking:
+    type: object
+    properties:
+      id:
+        type: number
+      name:
+        type: string
+      location:
+        type: string
+      dateCreated:
+        type: string
+        format: date
+    example:
+      dateCreated: 2000-01-23
+      name: name
+      location: location
+      id: 0.80082819046101150206595775671303272247314453125
+  Parkings:
+    type: object
+    properties:
+      Parkings:
+        type: array
+        items:
+          $ref: '#/definitions/Parking'
+    example:
+      Parkings:
+      - dateCreated: 2000-01-23
+        name: name
+        location: location
+        id: 0.80082819046101150206595775671303272247314453125
+      - dateCreated: 2000-01-23
+        name: name
+        location: location
+        id: 0.80082819046101150206595775671303272247314453125
+  Vehicle:
+    type: object
+    properties:
+      id:
+        type: number
+      vehicleId:
+        type: string
+      vehicleType:
+        type: string
+      model:
+        type: string
+      brand:
+        type: string
+      placeParked:
+        type: string
+      dateAdded:
+        type: string
+        format: date
+      dateGone:
+        type: string
+        format: date
+    example:
+      placeParked: placeParked
+      dateGone: 2000-01-23
+      model: model
+      id: 0.80082819046101150206595775671303272247314453125
+      vehicleId: vehicleId
+      brand: brand
+      vehicleType: vehicleType
+      dateAdded: 2000-01-23
+  Vehicles:
+    type: object
+    properties:
+      Vehicles:
+        type: array
+        items:
+          $ref: '#/definitions/Vehicle'
+    example:
+      Vehicles:
+      - placeParked: placeParked
+        dateGone: 2000-01-23
+        model: model
+        id: 0.80082819046101150206595775671303272247314453125
+        vehicleId: vehicleId
+        brand: brand
+        vehicleType: vehicleType
+        dateAdded: 2000-01-23
+      - placeParked: placeParked
+        dateGone: 2000-01-23
+        model: model
+        id: 0.80082819046101150206595775671303272247314453125
+        vehicleId: vehicleId
+        brand: brand
+        vehicleType: vehicleType
+        dateAdded: 2000-01-23

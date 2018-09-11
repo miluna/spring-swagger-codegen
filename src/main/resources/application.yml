@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:8889/codegenswagger
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 7070
