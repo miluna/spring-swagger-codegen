@@ -126,8 +126,8 @@
                         <configuration>
                             <inputSpec>${project.build.sourceDirectory}/../resources/generador_${api.version}.yml</inputSpec>
                             <language>spring</language>
-                            <modelPackage>com.example.generated.model</modelPackage>
-                            <apiPackage>com.example.generated.api</apiPackage>
+                            <modelPackage>com.cice.CiceCodeGen.model</modelPackage>
+                            <apiPackage>com.cice.CiceCodeGen.api</apiPackage>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <dateLibrary>java.util.Date</dateLibrary>
